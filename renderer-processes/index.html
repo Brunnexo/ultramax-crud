@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Ultramax</title>
+        <link rel="stylesheet" href="css/styles.css">
+    </head>
+    <body class="transparent">
+        <div class="index view light">
+            <div class="titlebar-button" id="btn-close">
+                <span class="close-btn"></span>
+            </div>
+
+            <nav class="navbar navbar-expand drag navbar-light">
+                <a class="navbar-brand" id="nav-name"></a>
+                <div class="collapse navbar-collapse">
+                    <ul class="navbar-nav">
+                        <li class="nav-item" onclick="Page.summary()">
+                            <a class="nav-link">Resumo</a>
+                        </li>
+                        <li class="nav-item" onclick="Page.register()">
+                            <a class="nav-link">Cadastro</a>
+                        </li>
+                        <li class="nav-item" onclick="Page.alter()">
+                            <a class="nav-link">Alteração/remoção</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="d-flex">
+                    <input class="form-control" type="search" id="input-search">
+                    <button class="btn ml-2" id="btn-search">Buscar</button>
+                </div>
+            </nav>
+
+            <div class="container-fluid drag" c-loader-container></div>
+
+            <div id="summary" class="container" c-loader updateable>
+                <h1 class="display-4" id="greetings">Bom dia!</h1>
+                <div class="neumorphic">
+                    <h1 class="display-6"><span id="label">Últimos 5 cadastros</span><button class="btn btn-outline-secondary ignore-theme ml-3" id="btn-show-all">Exibir todos</button></h1>
+                    <hr>
+                    <div id="summary-table" class="table-container">
+                    </div>
+                </div>
+            </div>
+
+            <div id="register" class="container" c-loader updateable>
+                <h1 class="display-4">Cadastrar usuário</h1>
+                <div class="neumorphic">
+                    <div class="p-5">
+                        <div class="input-group">
+                            <span class="input-group-text">Código</span>
+                            <input type="number" class="form-control mr-2 pr-2" id="input-code" for="reg-code">
+
+                            <span class="input-group-text">Nome e sobrenome</span>
+                            <input type="text" class="form-control" id="input-name">
+                        </div>
+                        
+                        <div class="input-group mt-2">
+                            <span class="input-group-text">Telefone</span>
+                            <input type="tel" class="form-control" id="input-telephone" for="reg-tel">
+                        </div>
+                    </div>
+
+                    <div class="mt-2 p5">
+                        <h1 class="display-6">Como ficará seu cadastro</h1>
+                        <hr>
+                        <table class="table">
+                            <thead>
+                            <tr>
+                                <th scope="col">Código</th>
+                                <th scope="col">Nome</th>
+                                <th scope="col">Telefone</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <th scope="row" id="reg-code"></th>
+                                <td id="reg-name"></td>
+                                <td id="reg-tel"></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="d-flex justify-content-end mt-2 mr-4">
+                    <button type="button" class="btn btn-outline-secondary ignore-theme" id="btn-clear">Limpar</button>
+                    <button type="button" class="btn btn-success ignore-theme ml-3" id="btn-register">Cadastrar</button>
+                </div>
+            </div>
+
+            <div id="alter" class="container" c-loader updateable>
+                <h1 class="display-4">Alterar/remover cadastros</h1>
+                <div class="neumorphic">
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                          <label class="input-group-text" for="sel-data">Pessoas cadastradas</label>
+                        </div>
+                        <select class="custom-select" id="sel-data">
+                        </select>
+                        <button type="button" class="btn btn-outline-danger ignore-theme ml-3" id="btn-delete">Apagar</button>
+
+                    </div>
+                    <hr>
+                    <div class="p-5 center">
+                        <div class="input-group">
+                            <span class="input-group-text">Código</span>
+                            <input type="text" class="form-control mr-2 pr-2" id="input-code" readonly>
+    
+                            <span class="input-group-text">Nome e sobrenome</span>
+                            <input type="text" class="form-control" id="input-name">
+                        </div>
+                        
+                        <div class="input-group mt-2">
+                            <span class="input-group-text">Telefone</span>
+                            <input type="tel" class="form-control" id="input-telephone">
+                        </div>
+                    </div>
+                </div>
+                <div class="d-flex justify-content-end mt-2 mr-4">
+                    <button type="button" class="btn btn-success ignore-theme ml-3" id="btn-change">Alterar</button>
+                </div>
+            </div>
+
+            <div id="query" class="container" c-loader updateable>
+                <h1 class="display-4">Resultado da busca - <span id="label-query"></span></h1>
+                <div class="neumorphic mt-2 p5">
+                    <div id="result-container" class="table-container">
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <script type="text/javascript" src="js/script.js"></script>
+    </body>
+</html>
